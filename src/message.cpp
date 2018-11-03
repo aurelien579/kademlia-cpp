@@ -5,3 +5,7 @@ Message::Message(int type) :
 {
 
 }
+
+Message::Message() : Message(0)
+{
+}

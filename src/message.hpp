@@ -8,6 +8,7 @@ class Message
 
 public:
     Message(int type);
+    Message();
 
 private:
     int m_type;
