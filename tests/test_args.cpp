@@ -1,7 +1,8 @@
-#define BOOST_TEST_MODULE args
-#include <boost/test/included/unit_test.hpp>
+#include <boost/test/unit_test.hpp>
 
 #include "../src/args.hpp"
+
+BOOST_AUTO_TEST_SUITE(test_args)
 
 BOOST_AUTO_TEST_CASE(test_args_contact)
 {
@@ -56,3 +57,5 @@ BOOST_AUTO_TEST_CASE(test_args_contact)
     } catch (std::invalid_argument &) {
     }
 }
+
+BOOST_AUTO_TEST_SUITE_END()
