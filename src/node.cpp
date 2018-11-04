@@ -18,9 +18,7 @@ void Node::listen()
     while (1) {
         ip::udp::endpoint endpoint;
 
-        char data[32];
-        m_socket.receive_from(buffer(data, sizeof(data)), endpoint);
-
-        cout << "Recv: " << data << endl;
+        Message msg;
+        m_socket.receive_from(&msg, endpoint);
     }
 }
