@@ -10,13 +10,13 @@
 using namespace std;
 using namespace boost::asio;
 
-Args::Args(int argc, char **argv) :
+Args::Args(int argc, const char * const *argv) :
     m_has_contact(false)
 {
     parse(argc, argv);
 }
 
-void Args::parse(int argc, char **argv)
+void Args::parse(int argc, const char * const *argv)
 {
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-c")) {
