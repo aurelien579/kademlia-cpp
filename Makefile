@@ -1,6 +1,6 @@
 CPP			= g++
 CFLAGS		= -Wall -std=c++11 --coverage
-LFLAGS		= -lboost_system -lpthread --coverage
+LFLAGS		= -lboost_system -lpthread -lboost_serialization --coverage
 
 SRC_DIR		= src
 BUILD_DIR	= build
@@ -48,6 +48,6 @@ $(BUILD_DIR)/%.o: $(TESTS_DIR)/%.cpp
 	$(CPP) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -R $(BUILD_DIR) $(BIN_DIR) $(COVERAGE_DIR)
+	rm -Rf $(BUILD_DIR) $(BIN_DIR) $(COVERAGE_DIR)
 
 .PHONY: clean
