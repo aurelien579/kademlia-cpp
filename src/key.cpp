@@ -59,13 +59,27 @@ bool Key::operator>=(const Key& rhs) const
     return !(*this < rhs);
 }
 
-std::ostream& Key::operator<<(std::ostream& os) const
+bool Key::operator==(const Key &rhs) const
 {
-    for (unsigned char c : bytes()) {
-        os << std::setw(2) << std::setfill('0') << c;
+    for (size_t i = 0; i < Key::LENGTH; i++) {
+        if (bytes().at(i) != rhs.bytes().at(i)) {
+            return false;
+        }
     }
 
-    os << std::endl;
+    return true;
+}
+
+bool Key::operator!=(const Key &rhs) const
+{
+    return !(*this == rhs);
+}
+
+std::ostream& operator<<(std::ostream& os, const Key &key)
+{
+    for (unsigned char c : key.bytes()) {
+        os << std::setfill('0') << std::setw(2) << std::hex << (int) c;
+    }
 
     return os;
 }

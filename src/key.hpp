@@ -22,10 +22,13 @@ public:
     bool operator<=(const Key& rhs) const;
     bool operator>=(const Key& rhs) const;
 
-    std::ostream& operator<<(std::ostream& os) const;
+    bool operator==(const Key &rhs) const;
+    bool operator!=(const Key &rhs) const;
 
 private:
     data_type m_bytes; /* Big endian */
 };
+
+std::ostream& operator<<(std::ostream& os, const Key &key);
 
 #endif
